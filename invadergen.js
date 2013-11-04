@@ -1,9 +1,9 @@
-function InvaderGen (width, height, scale, spacing, columns)
+function InvaderGen (width, height, scale, spacing, columns, rows, offset)
 {
     /**
      * Private
      */
-    var _invaderCount = Math.pow(2, width * height);
+    var _invaderCount = columns * rows;
     var _invaderWidth = (width * 2 - 1);
     var _invaderHeight = height;
 
@@ -44,7 +44,7 @@ function InvaderGen (width, height, scale, spacing, columns)
             var invaderX = i % columns;
             var invaderY = Math.floor(i / columns);
 
-            _context.fillStyle = colorizer(invaderX, invaderY);
+            _context.fillStyle = colorizer(invaderX, invaderY, invader.index);
 
             for (var ix = 0; ix < _invaderWidth; ix++)
             {
@@ -70,7 +70,7 @@ function InvaderGen (width, height, scale, spacing, columns)
     {
         for (var i = 0; i < _invaderCount; i++)
         {
-            _invaders.push(new Invader(width, height, i));
+            _invaders.push(new Invader(width, height, i + offset));
         }
     }
 

@@ -16,7 +16,7 @@ function Invader (width, height, index)
 
 
     /**
-     * Priviledged
+     * Public
      */
     this.getPixelAt = function(x, y)
     {
@@ -27,4 +27,6 @@ function Invader (width, height, index)
 
         return pixels[y*width + x];
     }
+
+    this.index = index;
 }
